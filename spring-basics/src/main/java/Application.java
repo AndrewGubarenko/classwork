@@ -14,7 +14,7 @@ public class Application {
 //    ApplicationContext context = new AnnotationConfigApplicationContext("hillel.jee");
 //    ApplicationContext context = new ClassPathXmlApplicationContext("/app.xml");
 
-    Game game = context.getBean(Game.class);
+    var game = context.getBean(Game.class);
     game.startGame();
 
     System.out.println(game);
