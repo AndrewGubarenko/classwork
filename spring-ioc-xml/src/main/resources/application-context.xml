@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <bean class="hillel.jee.beans.Game" init-method="initGame" destroy-method="destroyGame">
+    <property name="computer" ref="computerPlayer" />
+    <property name="human" ref="humanPlayer" />
+
+    <constructor-arg ref="avatarService" />
+  </bean>
+
+  <bean id="computerPlayer" class="hillel.jee.beans.players.Computer" />
+  <bean id="humanPlayer" class="hillel.jee.beans.players.Human">
+    <property name="thinkingTime" value="${human.thinking.time.ms}" />
+    <property name="avatar">
+      <bean factory-bean="avatarService" factory-method="getRandomOne" />
+    </property>
+  </bean>
+
+  <bean id="avatarService" class="hillel.jee.beans.services.AvatarService">
+    <constructor-arg name="emojis">
+      <list value-type="java.lang.String[]">
+        <value>😁</value>
+        <value>😂</value>
+        <value>😃</value>
+        <value>😋</value>
+        <value>😡</value>
+        <value>😱</value>
+        <value>😳</value>
+      </list>
+    </constructor-arg>
+  </bean>
+
+  <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="location" value="application.properties"/>
+  </bean>
+
+</beans>
+
