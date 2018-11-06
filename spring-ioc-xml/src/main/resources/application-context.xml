@@ -22,13 +22,14 @@
   <bean id="avatarService" class="hillel.jee.beans.services.AvatarService">
     <constructor-arg name="emojis">
       <list value-type="java.lang.String[]">
-        <value>😁</value>
-        <value>😂</value>
+        <value>🙈</value>
+        <value>🙍</value>
         <value>😃</value>
-        <value>😋</value>
+        <value>🙇</value>
         <value>😡</value>
         <value>😱</value>
         <value>😳</value>
+        <value>😾</value>
       </list>
     </constructor-arg>
   </bean>
