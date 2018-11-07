@@ -3,6 +3,8 @@ package hillel.jee.beans;
 import hillel.jee.beans.players.Player;
 import hillel.jee.beans.services.AvatarService;
 import java.util.concurrent.TimeUnit;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,11 +59,13 @@ public class Game implements InitializingBean, DisposableBean {
         '}';
   }
 
+  //@PostConstruct
   private void createGame() {
     System.out.println("-----------------");
     System.out.println("Creating the game");
   }
 
+  //@PostConstruct
   private void initGame() throws InterruptedException {
     System.out.println("-----------------");
     System.out.print("Game initialization");
@@ -73,6 +77,7 @@ public class Game implements InitializingBean, DisposableBean {
     System.out.println();
   }
 
+  //@PreDestroy
   private void destroyGame() throws Exception {
     System.out.println("-----------------");
     System.out.println("Finishing the game...");
@@ -83,12 +88,16 @@ public class Game implements InitializingBean, DisposableBean {
     System.out.println();
   }
 
-  @Override // as an alternative you can define destroy method when configuring game bean with @Bean. @see Bean.destroyMethod
+  @Override
+  // as an alternative you can define destroy method when configuring game bean with @Bean. @see Bean.destroyMethod
+  // or annotate any cleanup method with @PreDestroy which is a part of JEE spec - javax.annotation.PreDestroy
   public void destroy() throws Exception {
     destroyGame();
   }
 
-  @Override // as an alternative you can define initMethod method when configuring game bean with @Bean. @see Bean.initMethod
+  @Override
+  // as an alternative you can define initMethod method when configuring game bean with @Bean. @see Bean.initMethod
+  // or annotate any init method with @PostConstruct which is a part of JEE spec - javax.annotation.PostConstruct
   public void afterPropertiesSet() throws Exception {
     createGame();
     initGame();
