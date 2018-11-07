@@ -22,6 +22,7 @@ public class Application {
     game.startGame();
 
     // this is here to demonstrate bean's destroy method invocation
-    ((AnnotationConfigApplicationContext) context).close();
+//    ((AnnotationConfigApplicationContext) context).close();
+    ((AnnotationConfigApplicationContext) context).registerShutdownHook();
   }
 }
