@@ -29,14 +29,14 @@ public class Game implements InitializingBean, DisposableBean {
 
   @Autowired
   public void setHuman(Player human) {
-    System.out.printf("Choosing player %s [%s]\n", human, human.getAvatar());
+    System.out.printf("[DEBUG] Choosing player %s [%s]\n", human, human.getAvatar());
 
     this.human = human;
   }
 
   @Autowired
   public void setComputer(Player computer) {
-    System.out.printf("Choosing player %s [%s]\n", computer, computer.getAvatar());
+    System.out.printf("[DEBUG] Choosing player %s [%s]\n", computer, computer.getAvatar());
 
     this.computer = computer;
   }
