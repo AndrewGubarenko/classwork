@@ -6,7 +6,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface RandomInt {
-  // todo required?
+
   int min();
 
   int max();
