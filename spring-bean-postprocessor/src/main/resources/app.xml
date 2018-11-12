@@ -5,7 +5,6 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
   <bean id="helloBean" class="HelloBean" init-method="init" />
-  <!--<bean class="HelloBean2" />-->
 
   <bean class="RandomValueBeanPostProcessor" />
 </beans>

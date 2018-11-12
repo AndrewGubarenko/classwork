@@ -17,12 +17,22 @@ public class AppTests {
   private HelloBean helloBean;
 
   @Test
-  public void contextLoads() throws Exception {
-    assertThat(helloBean.getValue(), is(
+  public void promitiveGeneratedValueShouldBeWithinBounds() throws Exception {
+    assertThat(helloBean.getPrimitiveValue(), is(
         both(
             greaterThanOrEqualTo(10)
         ).and(
             lessThanOrEqualTo(100))
+    ));
+  }
+
+  @Test
+  public void boxedGeneratedValueShouldBeWithinBounds() throws Exception {
+    assertThat(helloBean.getBoxedValue(), is(
+        both(
+            greaterThanOrEqualTo(100)
+        ).and(
+            lessThanOrEqualTo(1000))
     ));
   }
 }
