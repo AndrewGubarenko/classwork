@@ -1,0 +1,11 @@
+version '2'
+  services:
+    spring-boot-app:
+      build: .
+       - ports: 8090:8080
+    mysql:
+      image: 'mysql'
+      environment:
+        - MYSQL_ROOT_PASSWORD: secret
+
+
