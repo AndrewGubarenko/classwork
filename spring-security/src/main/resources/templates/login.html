@@ -1,0 +1,33 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}"/>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+
+  <title>Hello Worm</title>
+</head>
+<body class="text-center">
+  <form action="#" th:action="@{/login}" method="post" class="form-signin">
+    <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+
+    <div th:if="${error}" class="alert alert-danger">
+      <strong>¯\_(ツ)_/¯</strong> <div>Try another Username or Password</div>
+    </div>
+    <div th:if="${logout}" class="alert alert-warning">
+      You have been logged out
+    </div>
+
+    <div th:unless="${error != null or logout != null}">
+      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    </div>
+
+
+    <label for="username" class="sr-only">Username</label>
+    <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  </form>
+</body>
+</html>

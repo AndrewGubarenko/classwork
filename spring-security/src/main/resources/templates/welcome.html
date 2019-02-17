@@ -1,0 +1,16 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+
+  <title>Hello Worm</title>
+</head>
+<body class="text-center">
+<h1 class="h3 mb-3 font-weight-normal">Hello <span th:text="${username}"></span></h1>
+  &nbsp;
+  <a href="/logout">
+    <small>exit</small>
+  </a>
+</body>
+</html>
